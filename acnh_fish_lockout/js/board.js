@@ -3,7 +3,7 @@ var MAX_POKEMON = 251;
 var SRC_POKE_PER_ROW = 16;
 var POKE_PER_ROW = 16;
 var POKE_RESOLUTION = 32;
-var LOCKOUT = false;
+var LOCKOUT = true;
 
 var currentColor = "color1";
 var thirdColor = "color3";
