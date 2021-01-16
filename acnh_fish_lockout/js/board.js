@@ -3,6 +3,7 @@ var MAX_POKEMON = 251;
 var SRC_POKE_PER_ROW = 16;
 var POKE_PER_ROW = 16;
 var POKE_RESOLUTION = 32;
+var LOCKOUT = true;
 
 var currentColor = "color1";
 
@@ -218,12 +219,15 @@ function connectionWarning() {
 function pokeClick(poke) {
     $poke = $(poke);
     var poke_id = $poke.attr("data-poke-id");
+    if (LOCKOUT==true) {
     if ($poke.hasClass(currentColor)) {
         $poke.removeClass(currentColor);
         sendEvent({"poke_id": poke_id, "action": "unset", color: currentColor});
     } else if (!$poke.hasClass(otherColor(currentColor))) {
         $poke.addClass(currentColor);
         sendEvent({"poke_id": poke_id, "action": "set", color: currentColor});
+    }
+    } else {
     }
     updatePokeCounts();
 }
@@ -235,11 +239,14 @@ function blankPoke(poke_id, color) {
         return false;
     }
 
+    if (LOCKOUT==true) {
     if ($poke.hasClass(color)) {
         $poke.removeClass(color);
         return true; // removed it
     } else {
         return false; // can't remove it
+    }
+    } else {
     }
 }
 
@@ -250,6 +257,7 @@ function setPoke(poke_id, color) {
         return false;
     }
 
+    if (LOCKOUT==true) {
     if ($poke.hasClass(color)) {
         return "already set"; // already that color
     } else if ($poke.hasClass(otherColor(color))) {
@@ -257,6 +265,8 @@ function setPoke(poke_id, color) {
     } else {
         $poke.addClass(color);
         return true; // set it
+    }
+    } else {
     }
 }
 
