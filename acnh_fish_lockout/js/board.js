@@ -229,18 +229,18 @@ function pokeClick(poke) {
         sendEvent({"poke_id": poke_id, "action": "set", color: currentColor});
     }
     } else {
-    //if ($poke.hasClass(currentColor)) {
-    //    $poke.removeClass(currentColor);
-    //    sendEvent({"poke_id": poke_id, "action": "unset", color: currentColor});
-    //} else if ($poke.hasClass(otherColor(currentColor))) {
-    //    $poke.addClass(thirdColor);
-    //    sendEvent({"poke_id": poke_id, "action": "set", color: thirdColor});
-    //} else if ($poke.hasClass(thirdColor)) {
-    //    $poke.removeClass(thirdColor);
-    //    sendEvent({"poke_id": poke_id, "action": "unset", color: currentColor});
-    //    $poke.addClass(otherColor(currentColor));
-    //    sendEvent({"poke_id": poke_id, "action": "set", color: otherColor(currentColor));
-    //}
+    if ($poke.hasClass(currentColor)) {
+        $poke.removeClass(currentColor);
+        sendEvent({"poke_id": poke_id, "action": "unset", color: currentColor});
+    } else if ($poke.hasClass(otherColor(currentColor))) {
+        $poke.addClass(thirdColor);
+        sendEvent({"poke_id": poke_id, "action": "set", color: thirdColor});
+    } else if ($poke.hasClass(thirdColor)) {
+        $poke.removeClass(thirdColor);
+        sendEvent({"poke_id": poke_id, "action": "unset", color: thirdColor});
+        $poke.addClass(otherColor(currentColor));
+        sendEvent({"poke_id": poke_id, "action": "set", color: otherColor(currentColor));
+    }
     }
     updatePokeCounts();
 }
@@ -307,10 +307,8 @@ function receivedPokeEvent(data) {
 
 function updatePokeCounts() {
     var color1Count = $(".poke.color1").length + $(".poke.color3").length;
-    //var color1Count = $(".poke.color1").length
     $("#poke-count-color1 div").text(color1Count);
     var color2Count = $(".poke.color2").length + $(".poke.color3").length;
-    //var color2Count = $(".poke.color2").length
     $("#poke-count-color2 div").text(color2Count);
 }
 
