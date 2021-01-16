@@ -306,11 +306,11 @@ function receivedPokeEvent(data) {
 }
 
 function updatePokeCounts() {
-    //var color1Count = $(".poke.color1").length + $(".poke.color3").length;
-    var color1Count = $(".poke.color1").length
+    var color1Count = $(".poke.color1").length + $(".poke.color3").length;
+    //var color1Count = $(".poke.color1").length
     $("#poke-count-color1 div").text(color1Count);
-    //var color2Count = $(".poke.color2").length + $(".poke.color3").length;
-    var color2Count = $(".poke.color2").length
+    var color2Count = $(".poke.color2").length + $(".poke.color3").length;
+    //var color2Count = $(".poke.color2").length
     $("#poke-count-color2 div").text(color2Count);
 }
 
