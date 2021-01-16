@@ -220,7 +220,7 @@ function connectionWarning() {
 function pokeClick(poke) {
     $poke = $(poke);
     var poke_id = $poke.attr("data-poke-id");
-    if (LOCKOUT===true) {
+    if (LOCKOUT==true) {
     if ($poke.hasClass(currentColor)) {
         $poke.removeClass(currentColor);
         sendEvent({"poke_id": poke_id, "action": "unset", color: currentColor});
@@ -229,18 +229,18 @@ function pokeClick(poke) {
         sendEvent({"poke_id": poke_id, "action": "set", color: currentColor});
     }
     } else {
-    if ($poke.hasClass(currentColor)) {
-        $poke.removeClass(currentColor);
-        sendEvent({"poke_id": poke_id, "action": "unset", color: currentColor});
-    } else if ($poke.hasClass(otherColor(currentColor))) {
-        $poke.addClass(thirdColor);
-        sendEvent({"poke_id": poke_id, "action": "set", color: thirdColor});
-    } else if ($poke.hasClass(thirdColor)) {
-        $poke.removeClass(thirdColor);
-        sendEvent({"poke_id": poke_id, "action": "unset", color: thirdColor});
-        $poke.addClass(otherColor(currentColor));
-        sendEvent({"poke_id": poke_id, "action": "set", color: otherColor(currentColor));
-    }
+    //if ($poke.hasClass(currentColor)) {
+    //    $poke.removeClass(currentColor);
+    //    sendEvent({"poke_id": poke_id, "action": "unset", color: currentColor});
+    //} else if ($poke.hasClass(otherColor(currentColor))) {
+    //    $poke.addClass(thirdColor);
+    //    sendEvent({"poke_id": poke_id, "action": "set", color: thirdColor});
+    //} else if ($poke.hasClass(thirdColor)) {
+    //    $poke.removeClass(thirdColor);
+    //    sendEvent({"poke_id": poke_id, "action": "unset", color: thirdColor});
+    //    $poke.addClass(otherColor(currentColor));
+    //    sendEvent({"poke_id": poke_id, "action": "set", color: otherColor(currentColor));
+    //}
     }
     updatePokeCounts();
 }
@@ -252,7 +252,7 @@ function blankPoke(poke_id, color) {
         return false;
     }
 
-    if (LOCKOUT===true) {
+    if (LOCKOUT==true) {
     if ($poke.hasClass(color)) {
         $poke.removeClass(color);
         return true; // removed it
@@ -260,12 +260,12 @@ function blankPoke(poke_id, color) {
         return false; // can't remove it
     }
     } else {
-    if ($poke.hasClass(color)) {
-        $poke.removeClass(color);
-        return true; // removed it
-    } else {
-        return false; // can't remove it
-    }
+    //if ($poke.hasClass(color)) {
+    //    $poke.removeClass(color);
+    //    return true; // removed it
+    //} else {
+    //    return false; // can't remove it
+    //}
     }
 }
 
@@ -276,7 +276,7 @@ function setPoke(poke_id, color) {
         return false;
     }
 
-    if (LOCKOUT===true) {
+    if (LOCKOUT==true) {
     if ($poke.hasClass(color)) {
         return "already set"; // already that color
     } else if ($poke.hasClass(otherColor(color))) {
@@ -286,12 +286,12 @@ function setPoke(poke_id, color) {
         return true; // set it
     }
     } else {
-    if ($poke.hasClass(color)) {
-        return "already set"; // already that color
-    } else {
-        $poke.addClass(color);
-        return true; // set it
-    }
+    //if ($poke.hasClass(color)) {
+    //    return "already set"; // already that color
+    //} else {
+    //    $poke.addClass(color);
+    //    return true; // set it
+    //}
     }
 }
 
