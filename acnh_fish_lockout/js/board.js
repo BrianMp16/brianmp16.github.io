@@ -228,6 +228,19 @@ function pokeClick(poke) {
         sendEvent({"poke_id": poke_id, "action": "set", color: currentColor});
     }
     } else {
+    if ($poke.hasClass(currentColor)) {
+        $poke.removeClass(currentColor);
+        sendEvent({"poke_id": poke_id, "action": "unset", color: currentColor});
+    } else if ($poke.hasClass(otherColor(currentColor))) {
+        $poke.addClass("color3");
+        sendEvent({"poke_id": poke_id, "action": "set", color: "color3"});
+    }
+    } else if ($poke.hasClass("color3")) {
+        $poke.removeClass("color3");
+        sendEvent({"poke_id": poke_id, "action": "unset", color: currentColor});
+        $poke.addClass(otherColor(currentColor));
+        sendEvent({"poke_id": poke_id, "action": "set", color: otherColor(currentColor));
+    }
     }
     updatePokeCounts();
 }
@@ -267,6 +280,11 @@ function setPoke(poke_id, color) {
         return true; // set it
     }
     } else {
+    if ($poke.hasClass(color)) {
+        return "already set"; // already that color
+    } else {
+        $poke.addClass(color);
+        return true; // set it
     }
 }
 
@@ -287,9 +305,9 @@ function receivedPokeEvent(data) {
 }
 
 function updatePokeCounts() {
-    var color1Count = $(".poke.color1").length;
+    var color1Count = $(".poke.color1").length + $(".poke.color3").length;
     $("#poke-count-color1 div").text(color1Count);
-    var color2Count = $(".poke.color2").length;
+    var color2Count = $(".poke.color2").length + $(".poke.color3").length;
     $("#poke-count-color2 div").text(color2Count);
 }
 
