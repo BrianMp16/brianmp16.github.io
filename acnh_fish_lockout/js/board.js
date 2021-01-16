@@ -6,6 +6,7 @@ var POKE_RESOLUTION = 32;
 var LOCKOUT = true;
 
 var currentColor = "color1";
+var thirdColor = "color3";
 
 
 var lastSyncTime = null;
@@ -232,11 +233,10 @@ function pokeClick(poke) {
         $poke.removeClass(currentColor);
         sendEvent({"poke_id": poke_id, "action": "unset", color: currentColor});
     } else if ($poke.hasClass(otherColor(currentColor))) {
-        $poke.addClass("color3");
-        sendEvent({"poke_id": poke_id, "action": "set", color: "color3"});
-    }
-    } else if ($poke.hasClass("color3")) {
-        $poke.removeClass("color3");
+        $poke.addClass(thirdColor);
+        sendEvent({"poke_id": poke_id, "action": "set", color: thirdColor});
+    } else if ($poke.hasClass(thirdColor)) {
+        $poke.removeClass(thirdColor);
         sendEvent({"poke_id": poke_id, "action": "unset", color: currentColor});
         $poke.addClass(otherColor(currentColor));
         sendEvent({"poke_id": poke_id, "action": "set", color: otherColor(currentColor));
@@ -285,6 +285,7 @@ function setPoke(poke_id, color) {
     } else {
         $poke.addClass(color);
         return true; // set it
+    }
     }
 }
 
