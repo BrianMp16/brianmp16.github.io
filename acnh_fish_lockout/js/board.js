@@ -159,11 +159,11 @@ function forceSyncBoard(theirBoard) {
             $poke.addClass(pokeColor);
         }
         } else {
-        //$poke.removeClass("color1");
-        //$poke.removeClass("color2");
-        //if (pokeColor === "color1" || pokeColor === "color2") {
-        //    $poke.addClass(pokeColor);
-        //}
+        $poke.removeClass("color1");
+        $poke.removeClass("color2");
+        if (pokeColor === "color1" || pokeColor === "color2") {
+            $poke.addClass(pokeColor);
+        }
         }
     }
     updatePokeCounts();
