@@ -300,15 +300,15 @@ function setPoke(poke_id, color) {
         return true; // set it
     }
     } else {
-    //if ($poke.hasClass(color)) {
-    //    return "already set"; // already that color
-    //} else if ($poke.hasClass(otherColor(color))) {
-    //    $poke.addClass(thirdColor);
-    //    return true; // set it
-    //} else {
-    //    $poke.addClass(color);
-    //    return true; // set it
-    //}
+    if ($poke.hasClass(color)) {
+        return "already set"; // already that color
+    } else if ($poke.hasClass(otherColor(color))) {
+        $poke.addClass(thirdColor);
+        return true; // set it
+    } else {
+        $poke.addClass(color);
+        return true; // set it
+    }
     }
 }
 
