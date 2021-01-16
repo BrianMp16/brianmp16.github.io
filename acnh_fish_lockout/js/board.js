@@ -251,6 +251,9 @@ function pokeClick(poke) {
         sendEvent({"poke_id": poke_id, "action": "unset", color: thirdColor});
         $poke.addClass(otherColor(currentColor));
         sendEvent({"poke_id": poke_id, "action": "set", color: otherColor(currentColor));
+    } else {
+        $poke.addClass(currentColor);
+        sendEvent({"poke_id": poke_id, "action": "set", color: currentColor});
     }
     }
     updatePokeCounts();
