@@ -260,6 +260,12 @@ function blankPoke(poke_id, color) {
         return false; // can't remove it
     }
     } else {
+    if ($poke.hasClass(color)) {
+        $poke.removeClass(color);
+        return true; // removed it
+    } else {
+        return false; // can't remove it
+    }
     }
 }
 
@@ -280,12 +286,12 @@ function setPoke(poke_id, color) {
         return true; // set it
     }
     } else {
-    //if ($poke.hasClass(color)) {
-    //    return "already set"; // already that color
-    //} else {
-    //    $poke.addClass(color);
-    //    return true; // set it
-    //}
+    if ($poke.hasClass(color)) {
+        return "already set"; // already that color
+    } else {
+        $poke.addClass(color);
+        return true; // set it
+    }
     }
 }
 
