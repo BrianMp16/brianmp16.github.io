@@ -220,7 +220,7 @@ function connectionWarning() {
 function pokeClick(poke) {
     $poke = $(poke);
     var poke_id = $poke.attr("data-poke-id");
-    if (LOCKOUT==true) {
+    if (LOCKOUT === true) {
     if ($poke.hasClass(currentColor)) {
         $poke.removeClass(currentColor);
         sendEvent({"poke_id": poke_id, "action": "unset", color: currentColor});
@@ -252,7 +252,7 @@ function blankPoke(poke_id, color) {
         return false;
     }
 
-    if (LOCKOUT==true) {
+    if (LOCKOUT === true) {
     if ($poke.hasClass(color)) {
         $poke.removeClass(color);
         return true; // removed it
@@ -276,7 +276,7 @@ function setPoke(poke_id, color) {
         return false;
     }
 
-    if (LOCKOUT==true) {
+    if (LOCKOUT === true) {
     if ($poke.hasClass(color)) {
         return "already set"; // already that color
     } else if ($poke.hasClass(otherColor(color))) {
