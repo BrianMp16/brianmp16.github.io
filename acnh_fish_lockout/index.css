@@ -107,6 +107,13 @@
     background-color: #bbf;
 }
 
+.poke.color3 {
+    background-color: #f6f;
+}
+.poke.color3:hover {
+    background-color: #fbf;
+}
+
 /* Marking for local reference */
 .poke.marked {
     background: repeating-linear-gradient(
@@ -155,6 +162,23 @@
         45deg,
         #777, #777 6.25%,
         #bbf 6.25%, #bbf 18.75%,
+        #777 18.75%, #777 25%
+    );
+}
+
+.poke.marked.color3 {
+    background: repeating-linear-gradient(
+        45deg,
+        #222, #222 6.25%,
+        #f6f 6.25%, #f6f 18.75%,
+        #222 18.75%, #222 25%
+    );
+}
+.poke.marked.color3:hover {
+    background: repeating-linear-gradient(
+        45deg,
+        #777, #777 6.25%,
+        #fbf 6.25%, #fbf 18.75%,
         #777 18.75%, #777 25%
     );
 }
