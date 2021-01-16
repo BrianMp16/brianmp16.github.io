@@ -1,6 +1,6 @@
 
 var MAX_POKEMON = 251;
-var SRC_POKE_PER_ROW = 13;
+var SRC_POKE_PER_ROW = 16;
 var POKE_PER_ROW = 16;
 var POKE_RESOLUTION = 32;
 
